@@ -1,4 +1,5 @@
 from models.avaliacao import Avaliacao
+from sys import platform
 
 # Criação da Classe
 class Restaurante:
@@ -47,25 +48,49 @@ class Restaurante:
         soma_notas = sum(avaliacao._nota for avaliacao in self.avaliacao)
         quantidade_notas = len(self.avaliacao)
         media_notas = round(soma_notas / quantidade_notas, 1)
-        if 0 <= media_notas < 0.5:
-                return f'{media_notas} | ☆☆☆☆☆'
-        elif 0.5 <= media_notas < 1:
-                return f'{media_notas} | ✰☆☆☆☆'
-        elif 1 <= media_notas < 1.5:
-                return f'{media_notas} | ★☆☆☆☆'
-        elif 1.5 <= media_notas < 2:
-                return f'{media_notas} | ★✰☆☆☆'  
-        elif 2 <= media_notas < 2.5:
-                return f'{media_notas} | ★★☆☆☆'  
-        elif 2.5 <= media_notas < 3:
-                return f'{media_notas} | ★★✰☆☆'  
-        elif 3 <= media_notas < 3.5:
-                return f'{media_notas} | ★★★☆☆'  
-        elif 3.5 <= media_notas < 4:
-                return f'{media_notas} | ★★★✰☆'  
-        elif 4 <= media_notas < 4.5:
-                return f'{media_notas} | ★★★★☆'  
-        elif 4.5 <= media_notas < 5:
-                return f'{media_notas} | ★★★★✰'
-        elif media_notas == 5:
-                return f'{media_notas} | ★★★★★'
+        if platform == 'darwin':
+                if 0 <= media_notas < 0.5:
+                        return f'{media_notas} | ☆☆☆☆☆'
+                elif 0.5 <= media_notas < 1:
+                        return f'{media_notas} | ✰☆☆☆☆'
+                elif 1 <= media_notas < 1.5:
+                        return f'{media_notas} | ★☆☆☆☆'
+                elif 1.5 <= media_notas < 2:
+                        return f'{media_notas} | ★✰☆☆☆'  
+                elif 2 <= media_notas < 2.5:
+                        return f'{media_notas} | ★★☆☆☆'  
+                elif 2.5 <= media_notas < 3:
+                        return f'{media_notas} | ★★✰☆☆'  
+                elif 3 <= media_notas < 3.5:
+                        return f'{media_notas} | ★★★☆☆'  
+                elif 3.5 <= media_notas < 4:
+                        return f'{media_notas} | ★★★✰☆'  
+                elif 4 <= media_notas < 4.5:
+                        return f'{media_notas} | ★★★★☆'  
+                elif 4.5 <= media_notas < 5:
+                        return f'{media_notas} | ★★★★✰'
+                elif media_notas == 5:
+                        return f'{media_notas} | ★★★★★'
+        else:
+                if 0 <= media_notas < 0.5:
+                        return f'{media_notas} | ✰✰✰✰✰'
+                elif 0.5 <= media_notas < 1:
+                        return f'{media_notas} | ☆✰✰✰✰'
+                elif 1 <= media_notas < 1.5:
+                        return f'{media_notas} | ★✰✰✰✰'
+                elif 1.5 <= media_notas < 2:
+                        return f'{media_notas} | ★☆✰✰✰'  
+                elif 2 <= media_notas < 2.5:
+                        return f'{media_notas} | ★★✰✰✰'  
+                elif 2.5 <= media_notas < 3:
+                        return f'{media_notas} | ★★☆✰✰'  
+                elif 3 <= media_notas < 3.5:
+                        return f'{media_notas} | ★★★✰✰'  
+                elif 3.5 <= media_notas < 4:
+                        return f'{media_notas} | ★★★☆✰'  
+                elif 4 <= media_notas < 4.5:
+                        return f'{media_notas} | ★★★★✰'  
+                elif 4.5 <= media_notas < 5:
+                        return f'{media_notas} | ★★★★☆'
+                elif media_notas == 5:
+                        return f'{media_notas} | ★★★★★'
