@@ -1,4 +1,5 @@
 from models.avaliacao import Avaliacao
+from models.cardapio.item_cardapio import ItemCardapio
 from sys import platform
 
 # Criação da Classe
@@ -11,6 +12,7 @@ class Restaurante:
         self._categoria = categoria.capitalize()
         self._ativo = False
         self.avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
     # Método que determina como o Objeto vai ser exibido como string
@@ -40,6 +42,8 @@ class Restaurante:
         if 0 <= nota <= 5:
                 avaliacao = Avaliacao(cliente, nota)
                 self.avaliacao .append(avaliacao)
+
+
 
     @property
     def media_avaliacoes(self):
@@ -94,3 +98,20 @@ class Restaurante:
                         return f'{media_notas} | ★★★★☆'
                 elif media_notas == 5:
                         return f'{media_notas} | ★★★★★'
+                
+    def adicionar_item_cardapio(self, item):
+        # Verifica se é uma instância do item
+        if isinstance(item, ItemCardapio):  
+            self._cardapio.append(item)
+
+    @classmethod
+    def listar_restaurantes(cls):
+        print('\n _____________________________________________________________________________________________________')
+        print(f'|\033[4m {'Nome'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(15)} |      {'Situação'.ljust(20)} |\033[0m')
+        ultimo_item = cls.restaurantes[-1]
+        for restaurante in cls.restaurantes:
+            if restaurante == ultimo_item:
+                print(f'|\033[4m {restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.media_avaliacoes.ljust(15)} | {restaurante.ativo.ljust(25)} |\033[0m')
+            else:
+                print(f'| {restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.media_avaliacoes.ljust(15)} | {restaurante.ativo.ljust(25)} |')
+        print('')
