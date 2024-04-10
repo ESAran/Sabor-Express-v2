@@ -18,3 +18,6 @@ class Bebida(ItemCardapio):
     @property
     def tipo_bebida(self):
         return 'Alcólica' if self._alcolica == True else 'Não Alcólica'
+    
+    def aplicar_desconto(self):
+        self._preco -= (self._preco * 0.1)

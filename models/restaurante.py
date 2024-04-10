@@ -1,6 +1,10 @@
 from models.avaliacao import Avaliacao
 from models.cardapio.item_cardapio import ItemCardapio
+from models.cardapio.prato import Prato
+from models.cardapio.bebida import Bebida
 from sys import platform
+
+import textwrap
 
 # Criação da Classe
 class Restaurante:
@@ -42,8 +46,6 @@ class Restaurante:
         if 0 <= nota <= 5:
                 avaliacao = Avaliacao(cliente, nota)
                 self.avaliacao .append(avaliacao)
-
-
 
     @property
     def media_avaliacoes(self):
@@ -103,6 +105,34 @@ class Restaurante:
         # Verifica se é uma instância do item
         if isinstance(item, ItemCardapio):  
             self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+        print(f'CARDÁPIO - {self._nome}\n')
+
+        print('\tBEBIDAS:')
+        i=0
+        for item in self._cardapio:
+            if isinstance(item, Bebida):
+                i += 1
+                if item._alcolica == True:
+                    print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 🍺 {'Alcólica'.ljust(5)}')
+                    print(f'\n\t\tdescrição: {item._descricao}\n')
+                else:
+                    print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 🥤 {'Não Alcólica'.ljust(5)}')
+                    print(f'\n\t\tdescrição: {item._descricao}\n')
+
+        print('\tPRATOS:')
+        i=0
+        for item in self._cardapio:
+            if isinstance(item, Prato):
+                i += 1
+                if item._pessoas > 1:
+                    print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 👥 {item._pessoas} {'pessoas'.ljust(5)}')
+                    print(f'\n\t\tdescrição: {item._descricao}\n')
+                else:
+                    print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 👤 {item._pessoas} {'pessoa '.ljust(5)}')
+                    print(f'\n\t\tdescrição: {item._descricao}\n')            
 
     @classmethod
     def listar_restaurantes(cls):

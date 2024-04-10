@@ -20,3 +20,6 @@ class Prato(ItemCardapio):
         if sabor == 'Salgado' or 'Doce':
             self._sabor = sabor
         else: self._sabor = None
+
+    def aplicar_desconto(self):
+        self._preco -= (self._preco * 0.2)
