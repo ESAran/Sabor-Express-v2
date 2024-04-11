@@ -1,7 +1,7 @@
 from models.cardapio.item_cardapio import ItemCardapio
 
 class Prato(ItemCardapio):
-    def __init__(self, nome, preco, medida, pessoas, descricao, sabor):
+    def __init__(self, nome, preco, pessoas, descricao, sabor=None):
         """
         #### Pratos do Restaurante
         
@@ -13,7 +13,7 @@ class Prato(ItemCardapio):
             descricao (string): breve descrição
             sabor (string): 'Salgado' ou 'Doce'
         """
-        super().__init__(nome, preco, medida, descricao)
+        super().__init__(nome, preco, descricao)
         if int(pessoas):
             self._pessoas = pessoas
         else: self._pessoas = None

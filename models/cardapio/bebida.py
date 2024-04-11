@@ -1,7 +1,7 @@
 from models.cardapio.item_cardapio import ItemCardapio
 
 class Bebida(ItemCardapio):
-    def __init__(self, nome, preco, medida, descricao, alcolica=False):
+    def __init__(self, nome, preco, descricao, alcolica=None):
         """
         #### Bebidas dos restaurantes
 
@@ -12,8 +12,10 @@ class Bebida(ItemCardapio):
             descricao (string): descrição breve 
             alcolica (bool, optional): Bebida Alcólica. Padrão: False.
         """
-        super().__init__(nome, preco, medida, descricao)
-        self._alcolica = alcolica
+        super().__init__(nome, preco, descricao)
+        if alcolica != None:
+            self._alcolica = alcolica
+        else: self._alcolica = None
 
     @property
     def tipo_bebida(self):

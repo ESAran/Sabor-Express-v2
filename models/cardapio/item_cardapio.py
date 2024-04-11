@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
 
 class ItemCardapio(ABC):
-    def __init__(self, nome, preco, medida, descricao):
+    def __init__(self, nome, preco, descricao):
         self._nome = nome.capitalize()
         self._preco = float(preco)
-        self._medida = int(medida)
         self._descricao = descricao.capitalize()
 
     def __str__(self):

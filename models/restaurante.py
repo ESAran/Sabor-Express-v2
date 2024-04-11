@@ -117,10 +117,12 @@ class Restaurante:
                 i += 1
                 if item._alcolica == True:
                     print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 🍺 {'Alcólica'.ljust(5)}')
-                    print(f'\n\t\tdescrição: {item._descricao}\n')
-                else:
+
+                elif item._alcolica == False:
                     print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 🥤 {'Não Alcólica'.ljust(5)}')
-                    print(f'\n\t\tdescrição: {item._descricao}\n')
+                else: 
+                    print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)}')
+                print(f'\n\t\tdescrição: {item._descricao}\n')
 
         print('\tPRATOS:')
         i=0
@@ -129,10 +131,9 @@ class Restaurante:
                 i += 1
                 if item._pessoas > 1:
                     print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 👥 {item._pessoas} {'pessoas'.ljust(5)}')
-                    print(f'\n\t\tdescrição: {item._descricao}\n')
                 else:
                     print(f'\t{i}. {item._nome.ljust(40)} | R$ {str(item._preco).ljust(6)} | 👤 {item._pessoas} {'pessoa '.ljust(5)}')
-                    print(f'\n\t\tdescrição: {item._descricao}\n')            
+                print(f'\n\t\tdescrição: {item._descricao}\n')            
 
     @classmethod
     def listar_restaurantes(cls):
