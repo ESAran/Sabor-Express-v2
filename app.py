@@ -28,7 +28,7 @@ print(dados_restaurante['McDonald’s'])
 for nome_restaurante, dados in dados_restaurante.items():
     nome_arquivo = f'restaurantes//{nome_restaurante}.json'
     with open(nome_arquivo, 'w') as file:
-        json.dump(dados, file, ident=4)
+        json.dump(dados, file, indent=4)
 
 '''def main():
     pass
