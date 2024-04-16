@@ -36,7 +36,7 @@ restaurante_dudu.alternar_estado()
 bebida_refri = Bebida('Coca-Cola (lata)', 6.00, 'Lata de refrigerante Coca-Cola',alcolica=False)
 bebida_cerveja = Bebida('Corona', 15.00, 'Garrafa de cerveja Corona', alcolica=True)
 prato_pizza = Prato('Pizza de Strogonoff', 85.00, 2, 'Famosa pizza de strogonoff, especialidade da casa.', 'Salgado')
-prato_pizza2 = Prato('Pizzazinha de Coraçãozinho', 75.00, 1, 'Famosa pizza de coraçãzinho pequena, especialidade da casa.', 'Salgado')
+prato_pizza2 = Prato('Pizzazin de Coraçãozin', 50.00, 1, 'Famosa pizzazinha de coraçãozinho pequena, especialidade da casa.', 'Salgado')
 prato_pizza_doce = Prato('Pizza de Abacaxi c/ Chocolate Branco', 90.00, 2, 'Famosa pizza de abacaxi com chocolate branco, especialidade da casa.', 'Doce')
 
 # Cardápio
